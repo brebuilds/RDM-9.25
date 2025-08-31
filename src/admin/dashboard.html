@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Door Management - Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: #ab0000;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .logout-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            color: #ab0000;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+        
+        .card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            background: #ab0000;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background: #8a0000;
+        }
+        
+        .btn-secondary {
+            background: #666;
+        }
+        
+        .btn-secondary:hover {
+            background: #555;
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 1rem;
+            background: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-right: 1px solid #eee;
+        }
+        
+        .tab:last-child {
+            border-right: none;
+        }
+        
+        .tab.active {
+            background: #ab0000;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Red Door Management - Admin Dashboard</h1>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+    
+    <div class="container">
+        <div id="success-message" class="success-message"></div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('content')">Website Content</button>
+            <button class="tab" onclick="showTab('team')">Team Members</button>
+            <button class="tab" onclick="showTab('projects')">Projects</button>
+            <button class="tab" onclick="showTab('settings')">Settings</button>
+        </div>
+        
+        <div id="content-tab" class="tab-content active">
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>Hero Section</h3>
+                    <p>Edit the main headline and hero text on your homepage</p>
+                    <button class="btn" onclick="editContent('hero')">Edit Hero Content</button>
+                </div>
+                
+                <div class="card">
+                    <h3>About Section</h3>
+                    <p>Update your company description and about text</p>
+                    <button class="btn" onclick="editContent('about')">Edit About Content</button>
+                </div>
+                
+                <div class="card">
+                    <h3>Services</h3>
+                    <p>Manage your service offerings and descriptions</p>
+                    <button class="btn" onclick="editContent('services')">Edit Services</button>
+                </div>
+                
+                <div class="card">
+                    <h3>Contact Information</h3>
+                    <p>Update phone numbers, email, and office address</p>
+                    <button class="btn" onclick="editContent('contact')">Edit Contact Info</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="team-tab" class="tab-content">
+            <div class="card">
+                <h3>Team Management</h3>
+                <p>Add, edit, or remove team members and their information</p>
+                <button class="btn" onclick="manageTeam()">Manage Team</button>
+                <button class="btn btn-secondary" onclick="addTeamMember()">Add New Member</button>
+            </div>
+        </div>
+        
+        <div id="projects-tab" class="tab-content">
+            <div class="card">
+                <h3>Project Portfolio</h3>
+                <p>Upload new project images and update project descriptions</p>
+                <button class="btn" onclick="manageProjects()">Manage Projects</button>
+                <button class="btn btn-secondary" onclick="addProject()">Add New Project</button>
+            </div>
+        </div>
+        
+        <div id="settings-tab" class="tab-content">
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>Change Password</h3>
+                    <p>Update your admin login password</p>
+                    <button class="btn" onclick="changePassword()">Change Password</button>
+                </div>
+                
+                <div class="card">
+                    <h3>Backup Content</h3>
+                    <p>Download a backup of all your website content</p>
+                    <button class="btn btn-secondary" onclick="backupContent()">Download Backup</button>
+                </div>
+                
+                <div class="card">
+                    <h3>Analytics</h3>
+                    <p>View website performance and visitor statistics</p>
+                    <button class="btn btn-secondary" onclick="viewAnalytics()">View Analytics</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is logged in
+        async function checkAuth() {
+            try {
+                const response = await fetch('check-auth.php');
+                const result = await response.json();
+                if (!result.authenticated) {
+                    window.location.href = 'index.html';
+                }
+            } catch (error) {
+                window.location.href = 'index.html';
+            }
+        }
+        
+        // Logout function
+        async function logout() {
+            try {
+                await fetch('logout.php', { method: 'POST' });
+            } catch (error) {
+                // Continue with logout even if request fails
+            }
+            window.location.href = 'index.html';
+        }
+        
+        // Tab switching
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-tab').classList.add('active');
+            
+            // Add active class to selected tab
+            event.target.classList.add('active');
+        }
+        
+        // Content editing functions
+        function editContent(section) {
+            window.location.href = `edit-content.html?section=${section}`;
+        }
+        
+        function manageTeam() {
+            window.location.href = 'manage-team.html';
+        }
+        
+        function addTeamMember() {
+            window.location.href = 'add-team-member.html';
+        }
+        
+        function manageProjects() {
+            window.location.href = 'manage-projects.html';
+        }
+        
+        function addProject() {
+            window.location.href = 'add-project.html';
+        }
+        
+        function changePassword() {
+            window.location.href = 'change-password.html';
+        }
+        
+        function backupContent() {
+            window.location.href = 'backup.php';
+        }
+        
+        function viewAnalytics() {
+            alert('Analytics feature coming soon!');
+        }
+        
+        // Show success message
+        function showSuccess(message) {
+            const successDiv = document.getElementById('success-message');
+            successDiv.textContent = message;
+            successDiv.style.display = 'block';
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Check authentication on page load
+        checkAuth();
+    </script>
+</body>
+</html>

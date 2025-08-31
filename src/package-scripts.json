@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "deploy-check": "node deploy.js",
+    "build-production": "npm run build && npm run deploy-check",
+    "export-help": "echo '📖 Check these guides:' && echo '   - IMAGE-EXPORT-GUIDE.md' && echo '   - EXPORT-INSTRUCTIONS.md' && echo '   - GODADDY-DEPLOYMENT-CHECKLIST.md'"
+  }
+}
