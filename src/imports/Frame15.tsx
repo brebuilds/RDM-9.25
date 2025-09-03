@@ -12,7 +12,7 @@ import img4101EBelleviewStPhoenixAzBuildingPhoto318WJpg from "../images/project-
 import imgFa6F3789F7Ce498C5F7Bac96Be3675E2UncroppedScaledWithin13441008Webp from "../images/project-4.png";
 import imgBohoBefore1920WPng from "../images/before-image.png";
 import imgBoho1920WJpg from "../images/after-image.png";
-import imgRedDoorHeroImage429WPng from "../images/red-door-hero.png";
+import imgRedDoorHeroImage429WPng from "../images/red-door-logo.png";
 import imgReddoorlogo2Png from "../images/red-door-text-logo.png";
 
 function ReddoortextCopy291E7C95413WPng() {

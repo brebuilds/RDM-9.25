@@ -8,7 +8,7 @@ import imgLink5 from "../images/rentals-short-long-term.png";
 import imgLink6 from "../images/acquisition-disposition.png";
 import imgLink7 from "../images/investment-analysis.png";
 import imgReddoorlogo2Png from "../images/red-door-text-logo.png";
-import imgReddoortextCopy291E7C951920WPng from "../images/red-door-footer-logo.png";
+import imgReddoortextCopy291E7C951920WPng from "../images/red-door-logo.png";
 
 function Container() {
   return (

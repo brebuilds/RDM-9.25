@@ -4,7 +4,7 @@ import imgLink from "../images/phoenix-area.png";
 import imgLink1 from "../images/property-management.png";
 import imgLink2 from "../images/construction-repositioning.png";
 import imgReddoorlogo2Png from "../images/red-door-text-logo.png";
-import imgReddoortextCopy291E7C951920WPng from "../images/red-door-footer-logo.png";
+import imgReddoortextCopy291E7C951920WPng from "../images/red-door-logo.png";
 
 function Heading1() {
   return (

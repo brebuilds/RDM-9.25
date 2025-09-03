@@ -54,7 +54,7 @@ export default function App() {
         return (
           <HomePage
             logoImg={imgReddoorlogo253E49B0F328WPng}
-            backgroundImg={imgRedDoorHeroImage429WPng}
+            backgroundImg={redDoorBackground}
             whyChooseUsImg={imgImage}
             projectImages={projectImages}
             beforeImg={imgBohoBefore1920WPng}
@@ -76,7 +76,7 @@ export default function App() {
         return (
           <HomePage
             logoImg={imgReddoorlogo253E49B0F328WPng}
-            backgroundImg={imgRedDoorHeroImage429WPng}
+            backgroundImg={redDoorBackground}
             whyChooseUsImg={imgImage}
             projectImages={projectImages}
             beforeImg={imgBohoBefore1920WPng}

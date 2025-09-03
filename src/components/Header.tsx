@@ -53,11 +53,11 @@ export function Header({ logoImg, svgPaths, currentPage, onNavigate }: HeaderPro
           </div>
 
           {/* Logo */}
-          <div className="flex-1 flex justify-center max-w-[200px]">
+          <div className="flex-1 flex justify-center max-w-[150px]">
             <img 
               src={logoImg} 
               alt="Red Door Management" 
-              className="h-6 lg:h-8 w-auto max-w-full object-contain transition-transform duration-300 hover:scale-105 cursor-pointer"
+              className="h-4 lg:h-6 w-auto max-w-full object-contain transition-transform duration-300 hover:scale-105 cursor-pointer"
               onClick={() => handleNavigation('home')}
             />
           </div>

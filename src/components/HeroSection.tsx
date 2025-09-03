@@ -8,17 +8,35 @@ export function HeroSection({
   backgroundImg,
 }: HeroSectionProps) {
   return (
-    <section className="min-h-screen bg-black py-16 lg:py-24 flex items-center">
-      <div className="container-fluid">
+    <section 
+      className="min-h-screen flex items-center relative"
+      style={
+        backgroundImg
+          ? {
+              backgroundImage: `url(${backgroundImg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundAttachment: "fixed"
+            }
+          : {}
+      }
+    >
+      {/* Background overlay */}
+      {backgroundImg && (
+        <div className="absolute inset-0 bg-black/60"></div>
+      )}
+      
+      {/* Content */}
+      <div className="container-fluid relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="space-y-8 lg:space-y-12">
             {/* Logo */}
-            <div className="text-center lg:text-left max-w-sm">
+            <div className="text-center lg:text-left max-w-xs">
               <img
                 src={logoImg}
                 alt="Red Door Management Logo"
-                className="h-16 lg:h-20 w-auto max-w-full object-contain mx-auto lg:mx-0 transition-transform duration-500 hover:scale-105"
+                className="h-12 lg:h-16 w-auto max-w-full object-contain mx-auto lg:mx-0 transition-transform duration-500 hover:scale-105"
               />
             </div>
 
@@ -58,23 +76,7 @@ export function HeroSection({
           </div>
 
           {/* Right Content */}
-          <div
-            className="relative min-h-[500px] lg:min-h-[700px] rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl"
-            style={
-              backgroundImg
-                ? {
-                    backgroundImage: `url(${backgroundImg})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }
-                : {}
-            }
-          >
-            {/* Background overlay */}
-            {backgroundImg && (
-              <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
-            )}
-
+          <div className="relative min-h-[500px] lg:min-h-[700px] rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl bg-white/10 backdrop-blur-sm border border-white/20">
             {/* Contact Info */}
             <div className="relative z-10 p-8 lg:p-12 h-full flex flex-col justify-center space-y-8 lg:space-y-12">
               <div className="space-y-4">

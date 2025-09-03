@@ -17,7 +17,7 @@ import img4101EBelleviewStPhoenixAzBuildingPhoto318WJpg from "./images/project-3
 import imgFa6F3789F7Ce498C5F7Bac96Be3675E2UncroppedScaledWithin13441008Webp from "./images/project-4.png";
 import imgBohoBefore1920WPng from "./images/before-image.png";
 import imgBoho1920WJpg from "./images/after-image.png";
-import imgRedDoorHeroImage429WPng from "./images/red-door-hero.png";
+import imgRedDoorHeroImage429WPng from "./images/red-door-logo.png";
 import imgReddoorlogo2Png from "./images/red-door-logo-footer.png";
 import redDoorBackground from "./images/red-door-background.png";
 
